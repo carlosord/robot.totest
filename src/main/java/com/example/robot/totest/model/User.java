@@ -5,6 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+import com.example.robot.totest.model.types.Role;
 
 /**
  * The Class User.
@@ -23,6 +26,11 @@ public class User extends BaseEntity {
 	@Column(name="password", nullable=false)
 	private String password;
 	
+	/** The role. */
+	@NotNull
+	@Column(name="role", nullable=false)
+	private Role role;
+	
 	/**
 	 * Instantiates a new user.
 	 */
@@ -33,11 +41,13 @@ public class User extends BaseEntity {
 	 *
 	 * @param username the username
 	 * @param password the password
+	 * @param role the role
 	 */
-	public User(String username, String password) {
+	public User(String username, String password, Role role) {
 		super();
 		this.username = username;
 		this.password = password;
+		this.role = role;
 	}
 	
 	/**
@@ -76,6 +86,24 @@ public class User extends BaseEntity {
 		this.password = password;
 	}
 
+	/**
+	 * Gets the role.
+	 *
+	 * @return the role
+	 */
+	public Role getRole() {
+		return role;
+	}
+
+	/**
+	 * Sets the role.
+	 *
+	 * @param role the new role
+	 */
+	public void setRole(Role role) {
+		this.role = role;
+	}
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
 	 */
@@ -112,7 +140,7 @@ public class User extends BaseEntity {
 	 */
 	@Override
 	public String toString() {
-		return "User [username=" + username + "]";
+		return "User [username=" + username + ", role=" + role + "]";
 	}
 	
 }
