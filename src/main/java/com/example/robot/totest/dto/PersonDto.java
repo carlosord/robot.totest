@@ -7,6 +7,9 @@ import com.example.robot.totest.model.Person;
  */
 public class PersonDto {
 
+	/** The id. */
+	private Long id;
+	
 	/** The dni. */
 	private String dni;
 
@@ -14,36 +17,79 @@ public class PersonDto {
 	private String name;
 
 	/** The last name. */
-	private String lastName;
+	private String lastname;
 
 	/** The age. */
 	private Integer age;
 
 	/**
 	 * Instantiates a new person dto.
-	 *
-	 * @param dni
-	 *            the dni
-	 * @param name
-	 *            the name
-	 * @param lastName
-	 *            the last name
-	 * @param age
-	 *            the age
 	 */
-	public PersonDto(String dni, String name, String lastName, Integer age) {
+	public PersonDto() {}
+	
+	/**
+	 * Instantiates a new person dto.
+	 *
+	 * @param id the id
+	 * @param dni            the dni
+	 * @param name            the name
+	 * @param lastname            the last name
+	 * @param age            the age
+	 */
+	public PersonDto(Long id, String dni, String name, String lastname, Integer age) {
 		super();
+		this.id = id;
 		this.dni = dni;
 		this.name = name;
-		this.lastName = lastName;
+		this.lastname = lastname;
 		this.age = age;
 	}
 
+	/**
+	 * Instantiates a new person dto.
+	 *
+	 * @param p the p
+	 */
 	public PersonDto(Person p) {
+		this.id = p.getId();
 		this.dni = p.getDni();
 		this.name = p.getName();
-		this.lastName = p.getLastname();
+		this.lastname = p.getLastname();
 		this.age = p.getAge();
+	}
+	
+	/**
+	 * To model.
+	 *
+	 * @return the person
+	 */
+	public Person toModel() {
+		Person p = new Person(this.dni);
+		p.setId(this.id);
+		p.setName(this.name);
+		p.setLastname(this.lastname);
+		p.setAge(this.age);
+		
+		return p;
+	}
+	
+	/**
+	 * Gets the id.
+	 *
+	 * @return the id
+	 */
+	public Long getId() {
+		return id;
+	}
+
+	/**
+	 * Sets the id.
+	 *
+	 * @param id
+	 *            the new id
+	 */
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	/**
@@ -89,18 +135,17 @@ public class PersonDto {
 	 *
 	 * @return the last name
 	 */
-	public String getLastName() {
-		return lastName;
+	public String getLastname() {
+		return lastname;
 	}
 
 	/**
 	 * Sets the last name.
 	 *
-	 * @param lastName
-	 *            the new last name
+	 * @param lastname the new lastname
 	 */
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
 	}
 
 	/**
@@ -122,9 +167,12 @@ public class PersonDto {
 		this.age = age;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
-		return "PersonDto [dni=" + dni + ", name=" + name + ", lastName=" + lastName + ", age=" + age + "]";
+		return "PersonDto [dni=" + dni + ", name=" + name + ", lastName=" + lastname + ", age=" + age + "]";
 	}
 
 }

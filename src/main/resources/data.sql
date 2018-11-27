@@ -1,4 +1,5 @@
 INSERT INTO users(username, password, role) VALUES ('admin','admin', 0);
+INSERT INTO users(username, password, role) VALUES ('user-1','user-1', 1);
 
 INSERT INTO persons(dni, name, lastname, age) VALUES ('11111111A','User1', 'User1', 20);
 INSERT INTO persons(dni, name, lastname, age) VALUES ('11111111B','User2', 'User2', 21);

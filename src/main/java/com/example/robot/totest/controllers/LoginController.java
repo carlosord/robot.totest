@@ -11,23 +11,45 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.example.robot.totest.model.User;
 import com.example.robot.totest.services.UserService;
 
+/**
+ * The Class LoginController.
+ */
 @Controller
 @SessionAttributes("user")
 public class LoginController {
 
+	/** The user service. */
 	@Autowired
 	private UserService userService;
 	
+	/**
+	 * Show login page.
+	 *
+	 * @param model the model
+	 * @return the string
+	 */
 	@GetMapping(value = "/login")
 	public String showLoginPage(ModelMap model) {
 		return "login";
 	}
 
+	/**
+	 * Sets the up user form.
+	 *
+	 * @return the user
+	 */
 	@ModelAttribute("user")
 	public User setUpUserForm() {
 		return new User();
 	}
 
+	/**
+	 * Showlist page.
+	 *
+	 * @param user the user
+	 * @param model the model
+	 * @return the string
+	 */
 	@PostMapping(value = "/login")
 	public String showlistPage(@ModelAttribute("user") User user, ModelMap model) {
 
@@ -43,11 +65,24 @@ public class LoginController {
 		return "welcome";
 	}
 
+	/**
+	 * Show register page.
+	 *
+	 * @param model the model
+	 * @return the string
+	 */
 	@GetMapping(value = "/register")
 	public String showRegisterPage(ModelMap model) {
 		return "register";
 	}
 
+	/**
+	 * Register new user.
+	 *
+	 * @param user the user
+	 * @param model the model
+	 * @return the string
+	 */
 	@PostMapping(value = "/register")
 	public String registerNewUser(@ModelAttribute("user") User user, ModelMap model) {
 
