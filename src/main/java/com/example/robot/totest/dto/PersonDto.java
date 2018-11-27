@@ -1,6 +1,7 @@
 package com.example.robot.totest.dto;
 
 import com.example.robot.totest.model.Person;
+import com.example.robot.totest.model.types.Gender;
 
 /**
  * The Class PersonDto.
@@ -21,7 +22,13 @@ public class PersonDto {
 
 	/** The age. */
 	private Integer age;
-
+	
+	/** The gender. */
+	private String gender;
+	
+	/** The hascar. */
+	private Boolean hascar;
+		
 	/**
 	 * Instantiates a new person dto.
 	 */
@@ -35,14 +42,18 @@ public class PersonDto {
 	 * @param name            the name
 	 * @param lastname            the last name
 	 * @param age            the age
+	 * @param gender the gender
+	 * @param hascar the hascar
 	 */
-	public PersonDto(Long id, String dni, String name, String lastname, Integer age) {
+	public PersonDto(Long id, String dni, String name, String lastname, Integer age, String gender, Boolean hascar) {
 		super();
 		this.id = id;
 		this.dni = dni;
 		this.name = name;
 		this.lastname = lastname;
 		this.age = age;
+		this.gender = gender;
+		this.hascar = hascar;
 	}
 
 	/**
@@ -56,6 +67,8 @@ public class PersonDto {
 		this.name = p.getName();
 		this.lastname = p.getLastname();
 		this.age = p.getAge();
+		this.gender = p.getGender() != null ? p.getGender().name() : null;
+		this.hascar = p.getHascar();
 	}
 	
 	/**
@@ -69,6 +82,8 @@ public class PersonDto {
 		p.setName(this.name);
 		p.setLastname(this.lastname);
 		p.setAge(this.age);
+		p.setGender(Gender.valueOf(this.gender));
+		p.setHascar(this.hascar);
 		
 		return p;
 	}
@@ -167,12 +182,49 @@ public class PersonDto {
 		this.age = age;
 	}
 
+	/**
+	 * Gets the gender.
+	 *
+	 * @return the gender
+	 */
+	public String getGender() {
+		return gender;
+	}
+
+	/**
+	 * Sets the gender.
+	 *
+	 * @param gender the new gender
+	 */
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	/**
+	 * Gets the hascar.
+	 *
+	 * @return the hascar
+	 */
+	public Boolean getHascar() {
+		return hascar;
+	}
+
+	/**
+	 * Sets the hascar.
+	 *
+	 * @param hascar the new hascar
+	 */
+	public void setHascar(Boolean hascar) {
+		this.hascar = hascar;
+	}
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return "PersonDto [dni=" + dni + ", name=" + name + ", lastName=" + lastname + ", age=" + age + "]";
+		return "PersonDto [id=" + id + ", dni=" + dni + ", name=" + name + ", lastname=" + lastname + ", age=" + age
+				+ ", gender=" + gender + ", hascar=" + hascar + "]";
 	}
 
 }
