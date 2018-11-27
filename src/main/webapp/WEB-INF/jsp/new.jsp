@@ -14,7 +14,7 @@
 <body>
 	<div class="container">
 		<jsp:include page="forms/person.jsp"> 
-			<jsp:param name="button" value="Update Person" />
+			<jsp:param name="button" value="Create Person" />
 		</jsp:include>
 		<a href="/list">Back</a>
 	</div>

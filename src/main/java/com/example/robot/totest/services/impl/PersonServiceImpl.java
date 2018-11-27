@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.robot.totest.dto.PersonDto;
+import com.example.robot.totest.model.Person;
 import com.example.robot.totest.repositories.PersonRepository;
 import com.example.robot.totest.services.PersonService;
 
@@ -43,7 +44,8 @@ public class PersonServiceImpl implements PersonService{
 	 */
 	@Override
 	public PersonDto findByDni(String dni) {
-		return new PersonDto(personRepository.findByDni(dni));
+		Person p = personRepository.findByDni(dni);
+		return p != null ? new PersonDto(p) : null;
 	}
 
 	/* (non-Javadoc)

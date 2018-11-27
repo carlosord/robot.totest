@@ -40,6 +40,7 @@
 				</c:forEach>
 			</tbody>
 		</table>
+		<a href="/new">Create a person</a>
 	</div>
 
 	<script src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
