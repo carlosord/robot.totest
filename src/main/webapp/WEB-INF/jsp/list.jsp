@@ -33,7 +33,7 @@
 							class="fas fa-${person.hascar ? 'check' : 'times' }"></span></td>
 						<td><a href="/edit/${person.dni}"><span
 								class="fas fa-edit"></span></a></td>
-						<td><a href="/delete/${person.dni}"><span
+						<td><a href="#" onclick="showConfirm('/delete/${person.dni}')"><span
 								class="fas fa-trash-alt"></span></a></td>
 					</tr>
 				</c:forEach>

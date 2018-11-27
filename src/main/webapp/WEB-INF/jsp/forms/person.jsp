@@ -7,7 +7,7 @@
 		value="${person.id}" />
 	<div class="form-group">
 		<label for="dni">Dni</label> <input type="text" class="form-control"
-			name="dni" id="dni" value="${person.dni}" required />
+			name="dni" id="dni" value="${person.dni}" ${(not empty person.id) ? 'readonly' : ''} required />
 	</div>
 	<div class="form-group">
 		<label for="name">Name</label> <input type="text" class="form-control"
