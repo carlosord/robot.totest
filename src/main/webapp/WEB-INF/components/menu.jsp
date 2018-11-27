@@ -13,7 +13,7 @@
 			<li class="nav-item active"><a class="nav-link" href="/list">List
 					People <span class="sr-only">(current)</span>
 			</a></li>
-			<li class="nav-item"><a class="nav-link" href="#">Link</a></li>
+			<li class="nav-item"><a class="nav-link" href="/video">Video in iframe</a></li>
 			<li class="nav-item"><a class="nav-link" href="#">Link2</a></li>
 			<li class="nav-item"><a class="nav-link" href="#">Link3</a></li>
 			<li class="nav-item"><a class="nav-link" href="#">Link4</a></li>
