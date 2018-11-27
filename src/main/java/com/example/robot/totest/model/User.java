@@ -140,7 +140,7 @@ public class User extends BaseEntity {
 	 */
 	@Override
 	public String toString() {
-		return "User [username=" + username + ", password=" + password + ", role=" + role + "]";
+		return "User [username=" + username + ", role=" + role + "]";
 	}
 	
 }
