@@ -1,18 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-<!DOCTYPE html>
-<html>
-<head>
-	<title>First Web Application</title>
-	<jsp:include page="components/includes.jsp"/> 
-</head>
-<body>
+<%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
 
-	<jsp:include page="components/menu.jsp"/> 
+<t:basic title="People List">
+
+	<jsp:attribute name="body_area">
 	
-	<div class="container">
 		<table class="table table-striped">
 			<thead class="thead-dark">
 				<tr>
@@ -45,10 +40,7 @@
 			</tbody>
 		</table>
 		<a href="/new">Create a person</a>
-	</div>
+	
+	</jsp:attribute>
 
-	<script src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-	<script src="webjars/jquery/1.9.1/jquery.min.js"></script>
-</body>
-
-</html>
+</t:basic>

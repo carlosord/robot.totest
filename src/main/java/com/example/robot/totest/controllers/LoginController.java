@@ -6,6 +6,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.example.robot.totest.model.User;
@@ -21,6 +22,17 @@ public class LoginController {
 	/** The user service. */
 	@Autowired
 	private UserService userService;
+	
+	/**
+	 * Show welcome page.
+	 *
+	 * @param model the model
+	 * @return the string
+	 */
+	@GetMapping(value = "/")
+	public String showWelcomePage(ModelMap model) {
+		return "welcome";
+	}
 	
 	/**
 	 * Show login page.
@@ -96,6 +108,19 @@ public class LoginController {
 		user.setRole(userService.save(user.getUsername(), user.getPassword()).getRole());
 
 		return "welcome";
+	}
+	
+	/**
+	 * Logout user.
+	 *
+	 * @param user the user
+	 * @param model the model
+	 * @return the string
+	 */
+	@PostMapping(value = "/logout")
+	public String logoutUser(@SessionAttribute("user") User user, ModelMap model) {
+		user = null;
+		return "login";
 	}
 
 }

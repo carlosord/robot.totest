@@ -1,12 +1,13 @@
-<html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
 
-<head>
-<title>First Web Application</title>
-</head>
+<t:basic title="People Management Welcome">
 
-<body>
-	Welcome ${user.username}!!
-	<a href="/list">Click here</a> to view people.
-</body>
-
-</html>
+	<jsp:attribute name="body_area">
+	
+	</jsp:attribute>
+	
+</t:basic>

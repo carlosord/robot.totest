@@ -1,26 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
 
-<html>
+<t:basic title="People Managemet Edit">
 
-<head>
-
-<link href="/webjars/bootstrap/3.3.6/css/bootstrap.min.css"
-	rel="stylesheet">
-<title>First Web Application</title>
-</head>
-
-<body>
-	<div class="container">
+	<jsp:attribute name="body_area">
+	
 		<jsp:include page="forms/person.jsp"> 
 			<jsp:param name="button" value="Update Person" />
 		</jsp:include>
-		<a href="/list">Back</a>
-	</div>
+		
+	</jsp:attribute>
 
-	<script src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-	<script src="webjars/jquery/1.9.1/jquery.min.js"></script>
-</body>
-
-</html>
+</t:basic>

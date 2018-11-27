@@ -40,4 +40,5 @@
 		</div>
 	</c:if>
 	<button type="submit" class="btn btn-primary"><%=request.getParameter("button")%></button>
+	<a href="/list" class="btn btn-danger">Cancel</a>
 </form>
