@@ -14,19 +14,19 @@ import com.example.robot.totest.model.Person;
 public interface PersonRepository extends JpaRepository<Person, Long> {
 	
 	/**
-	 * Find by dni.
+	 * Find by dni containing.
 	 *
 	 * @param dni the dni
 	 * @return the list
 	 */
-	public List<Person> findByDni(String dni);
-
+	public List<Person> findByDniContaining(String dni);
+	
 	/**
-	 * Find by dni containing.
+	 * Find by dni.
 	 *
-	 * @param string the string
-	 * @return the list
+	 * @param dni the dni
+	 * @return the person
 	 */
-	public List<Person> findByDniContaining(String string);
+	public Person findByDni(String dni);
 
 }

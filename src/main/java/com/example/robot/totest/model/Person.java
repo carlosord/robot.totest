@@ -6,6 +6,8 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotEmpty;
 
+import com.example.robot.totest.model.types.Gender;
+
 /**
  * The Class Person.
  */
@@ -29,6 +31,14 @@ public class Person extends BaseEntity {
 	/** The age. */
 	@Column(name = "age", nullable = true)
 	private Integer age;
+	
+	/** The gender. */
+	@Column(name = "gender", nullable = true)
+	private Gender gender;
+	
+	/** The hasCar. */
+	@Column(name = "hascar", nullable = true)
+	private Boolean hascar;
 
 	/**
 	 * Instantiates a new person.
@@ -117,6 +127,42 @@ public class Person extends BaseEntity {
 		this.age = age;
 	}
 
+	/**
+	 * Gets the gender.
+	 *
+	 * @return the gender
+	 */
+	public Gender getGender() {
+		return gender;
+	}
+
+	/**
+	 * Sets the gender.
+	 *
+	 * @param gender the new gender
+	 */
+	public void setGender(Gender gender) {
+		this.gender = gender;
+	}
+
+	/**
+	 * Gets the hascar.
+	 *
+	 * @return the hascar
+	 */
+	public Boolean getHascar() {
+		return hascar;
+	}
+
+	/**
+	 * Sets the hascar.
+	 *
+	 * @param hascar the new hascar
+	 */
+	public void setHascar(Boolean hascar) {
+		this.hascar = hascar;
+	}
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
 	 */
@@ -153,7 +199,8 @@ public class Person extends BaseEntity {
 	 */
 	@Override
 	public String toString() {
-		return "Person [dni=" + dni + ", name=" + name + ", lastname=" + lastname + ", age=" + age + "]";
+		return "Person [dni=" + dni + ", name=" + name + ", lastname=" + lastname + ", age=" + age + ", gender="
+				+ gender + ", hascar=" + hascar + "]";
 	}
 
 }

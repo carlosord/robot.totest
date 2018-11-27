@@ -4,10 +4,14 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
 
-<t:basic title="People Management Welcome">
+<t:basic title="People Managemet Edit">
 
 	<jsp:attribute name="body_area">
 	
+		<jsp:include page="forms/person.jsp"> 
+			<jsp:param name="button" value="Update Person" />
+		</jsp:include>
+		
 	</jsp:attribute>
-	
+
 </t:basic>
