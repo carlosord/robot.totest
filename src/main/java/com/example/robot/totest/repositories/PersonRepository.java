@@ -21,4 +21,12 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
 	 */
 	public List<Person> findByDni(String dni);
 
+	/**
+	 * Find by dni containing.
+	 *
+	 * @param string the string
+	 * @return the list
+	 */
+	public List<Person> findByDniContaining(String string);
+
 }
