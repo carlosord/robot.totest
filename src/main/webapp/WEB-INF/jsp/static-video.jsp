@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
 
-<t:basic title="People List">
+<t:basic title="Static Video">
 
 	<jsp:attribute name="body_area">
 	

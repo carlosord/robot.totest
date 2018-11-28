@@ -13,4 +13,10 @@ public class StaticPagesController {
 		return "static-video";
 	}
 	
+	@GetMapping(value="delay")
+	public String showDelayPage() throws InterruptedException {
+		Thread.sleep(10000);
+		return "delay-page";
+	}
+	
 }
