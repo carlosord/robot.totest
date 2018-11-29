@@ -74,7 +74,7 @@ public class LoginController {
 
 		user.setRole(findedUser.getRole());
 		
-		return "welcome";
+		return "list";
 	}
 
 	/**
