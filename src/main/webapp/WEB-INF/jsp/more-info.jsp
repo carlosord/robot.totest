@@ -8,7 +8,7 @@
 
 	<jsp:attribute name="body_area">
 	
-		<iframe src="http://robotframework.org/" style="height:800px;width:100%;"></iframe>
+		<iframe src="https://robotframework.org/" style="height:800px;width:100%;"></iframe>
 	
 	</jsp:attribute>
 	
