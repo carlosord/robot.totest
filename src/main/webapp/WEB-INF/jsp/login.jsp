@@ -8,7 +8,7 @@
 
 	<jsp:attribute name="body_area">
 	
-		<form method="post" action="login">
+		<form method="post" action="login" id="login-form">
 			<div class="form-group">
 				<label for="username">Username</label> <input type="text"
 					class="form-control" name="username" id="username"
