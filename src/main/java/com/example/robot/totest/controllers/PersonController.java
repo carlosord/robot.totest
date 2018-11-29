@@ -3,6 +3,7 @@ package com.example.robot.totest.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -34,6 +35,8 @@ public class PersonController {
 	 */
 	@GetMapping(value = "/list")
 	public String listPeople(@SessionAttribute("user") User user, ModelMap model) {
+		
+		if (user.getRole() == null) return "login";
 
 		model.put("people", user.getRole().equals(Role.ADMIN) ? personService.findAll()
 				: personService.findByUsername(user.getUsername()));
@@ -124,6 +127,11 @@ public class PersonController {
 		personService.save(personDto);
 		
 		return "redirect:/list";
+	}
+	
+	@ExceptionHandler({org.springframework.web.bind.ServletRequestBindingException.class})
+	public String handler() {
+		return "login";
 	}
 
 }
