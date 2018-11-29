@@ -15,6 +15,7 @@ public class StaticPagesController {
 	
 	@GetMapping(value="/delay")
 	public String showDelayPage() throws InterruptedException {
+		// Sleep 10 seconds to simulated a page that loads a big amount of data
 		Thread.sleep(10000);
 		return "delay-page";
 	}
@@ -22,6 +23,11 @@ public class StaticPagesController {
 	@GetMapping(value="/info")
 	public String showMoreInfoPage() {
 		return "more-info";
+	}
+	
+	@GetMapping(value="/carousel")
+	public String showCarouselPage() {
+		return "carousel";
 	}
 	
 }
