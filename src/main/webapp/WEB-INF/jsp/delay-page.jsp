@@ -8,12 +8,22 @@
 
 	<jsp:attribute name="body_area">
 	
+		<!-- Alert -->
+		<div class="alert alert-success alert-dismissible fade show" role="alert">
+		  <h4 class="alert-heading">Date inserted!</h4>
+		  <p id="showed-input-date"></p>
+		  <button type="button" class="close" data-dismiss="alert"
+				aria-label="Close">
+	  		<span aria-hidden="true">&times;</span>
+		  </button>
+		</div>
+		
 		<!-- Button trigger modal -->
 		<button type="button" class="btn btn-primary" data-toggle="modal"
 			data-target="#modal">
 		  Launch a modal window to enter a date
 		</button>
-		
+			
 		<!-- Modal -->
 		<div class="modal fade" id="modal" tabindex="-1" role="dialog"
 			aria-labelledby="modalLabel" aria-hidden="true">
@@ -36,7 +46,8 @@
 		      <div class="modal-footer">
 		        <button type="button" class="btn btn-secondary"
 							data-dismiss="modal">Close</button>
-		        <button type="button" class="btn btn-primary">Save changes</button>
+		        <button type="button" class="btn btn-primary"
+							onclick="showDate()" data-dismiss="modal">Show my date!</button>
 		      </div>
 		    </div>
 		  </div>

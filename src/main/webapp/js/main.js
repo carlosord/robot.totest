@@ -1,3 +1,7 @@
+$( document ).ready(function() {
+	$('.alert').hide();
+});
+
 function showConfirm(url) {
 	$.confirm({
 		title : 'Delete Person!',
@@ -11,4 +15,9 @@ function showConfirm(url) {
 			}
 		}
 	});
+}
+
+function showDate() {
+	$("#showed-input-date").text($("#input-date").val());
+	$('.alert').show();
 }
