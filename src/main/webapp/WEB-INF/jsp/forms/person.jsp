@@ -2,7 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<form method="post">
+<form method="post" id="person-form">
 	<input type="hidden" class="form-control" name="id" id="id"
 		value="${person.id}" />
 	<div class="form-group">
