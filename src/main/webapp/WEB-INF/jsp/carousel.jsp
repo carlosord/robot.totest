@@ -17,11 +17,12 @@
 		    </div>
 		    <div class="carousel-item">
 		      <img class="d-block w-100"
-						src="https://blog.codecentric.de/en/2017/09/robot-framework-compare-images-screenshots/">
+						src="https://blog.codecentric.de/files/2017/09/robot-framework-screenshot-3.png"
+						alt="Second slide">
 		    </div>
 		    <div class="carousel-item">
 		      <img class="d-block w-100"
-						src="https://www.xoriant.com/blog/product-engineering/robot-framework.html" alt="Third slide">
+						src="https://www.xoriant.com/blog/wp-content/uploads/2015/07/RobotFramework-2.png" alt="Third slide">
 		    </div>
 		  </div>
 		  <a class="carousel-control-prev" href="#carouselExampleControls"
