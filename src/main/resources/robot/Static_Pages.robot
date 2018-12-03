@@ -25,6 +25,14 @@ Test Delay Page
     Wait Until Page Contains    2018-04-12
     [Teardown]    Close Browser
 
+Test Delay 2 Page
+    [Setup]    Open Browser At Index
+    Go To Delay Page
+    Click On Modal Button
+    Insert Date In Modal Window    04122018
+    Click On Button To Show Date
+    Wait Until Page Contains    2018-04-12
+
 *** Keywords ***
 Open Browser At Index
     ${chrome_options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys

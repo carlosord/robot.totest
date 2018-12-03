@@ -20,6 +20,11 @@ public class StaticPagesController {
 		return "delay-page";
 	}
 	
+	@GetMapping(value="/delay2")
+	public String showDelay2Page() throws InterruptedException {
+		return "delay-page";
+	}
+	
 	@GetMapping(value="/info")
 	public String showMoreInfoPage() {
 		return "more-info";
