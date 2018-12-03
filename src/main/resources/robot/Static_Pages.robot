@@ -35,6 +35,13 @@ Test Delay 2 Page
     Wait Until Page Contains    2018-04-12
     [Teardown]    Close Browser
 
+Test Menu Select Option
+    [Setup]    Open Browser At Index
+    Click Menu Element
+    Mouse Over    //*[@id="navbarSupportedContent"]/ul/li[5]/div/ul/li[3]/a
+    Mouse Over    //*[@id="navbarSupportedContent"]/ul/li[5]/div/ul/li[3]/ul/li[2]/a
+    Click Menu Element Carousel
+
 *** Keywords ***
 Open Browser At Index
     ${chrome_options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys
@@ -62,3 +69,9 @@ Insert Date In Modal Window
 
 Click On Button To Show Date
     Click Button    //button[@onclick="showDate()"]
+
+Click Menu Element
+    Click Link    //*[@id="navbarDropdown"]
+
+Click Menu Element Carousel
+    Click Link    //*[@id="navbarSupportedContent"]/ul/li[5]/div/ul/li[3]/ul/li[2]/ul/li[2]/a

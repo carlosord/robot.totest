@@ -4,17 +4,17 @@ Library           SeleniumLibrary    # Library to user Selenium Keywords
 
 *** Variables ***
 ${WEB}            https://robotframework-test.herokuapp.com    # Web to test with robot https://robotframework-test.herokuapp.com
-${SELENIUM_DELAY}    0.2    # Selenium Speed
+${SELENIUM_DELAY}    0.5    # Selenium Speed
 ${BROWSER}        Chrome    # Browser to do the test
-${USER}           user-Z
-${PASS}           user-Z
+${USER}           carlosord
+${PASS}           pass1234
 
 *** Test Cases ***
 Login at app
     [Documentation]    Test login from app
     [Setup]    Open Browser At Index
     Go To Page People Management List
-    Login With User    user-A    user-A
+    Login With User    ${USER}    ${PASS}
     Submit Form    login-form
     Wait Until Page Contains Element    people-list
     [Teardown]    Close Browser
@@ -23,7 +23,7 @@ Create New Person
     [Documentation]    Test create action from app
     [Setup]    Open Browser At Index
     Go To Page People Management List
-    Login With User    user-A    user-A
+    Login With User    ${USER}    ${PASS}
     Submit Form    login-form
     Click On Create A Person
     Fill Form With Sample Data And Submit
@@ -33,7 +33,7 @@ Create New Person
 Edit Existing Person
     [Setup]    Open Browser At Index
     Go To Page People Management List
-    Login With User    user-A    user-A
+    Login With User    ${USER}    ${PASS}
     Submit Form    login-form
     Click On Edit Button From User10
     Fill Form With New Data And Submit
@@ -43,11 +43,12 @@ Edit Existing Person
 Delete Existing Person
     [Setup]    Open Browser At Index
     Go To Page People Management List
-    Login With User    user-A    user-A
+    Login With User    ${USER}    ${PASS}
     Submit Form    login-form
     Delete User 10
     Wait Until Confirm Dialog Appear
     Click OK In Confirm Window
+    [Teardown]    Close Browser
 
 *** Keywords ***
 Open Browser At Index

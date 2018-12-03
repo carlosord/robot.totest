@@ -70,7 +70,7 @@ public class PeopleController {
 	@PostMapping(value = "/edit/{dni}")
 	public String executeEdit(@SessionAttribute("user") User user, ModelMap model, PersonDto personDto) {
 		
-		personService.save(personDto);
+		personService.save(personDto, user);
 		
 		return "redirect:/list";
 	}
@@ -123,7 +123,7 @@ public class PeopleController {
 			return "/new";
 		}
 		
-		personService.save(personDto);
+		personService.save(personDto, user);
 		
 		return "redirect:/list";
 	}
