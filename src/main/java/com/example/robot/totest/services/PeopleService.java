@@ -5,9 +5,9 @@ import java.util.List;
 import com.example.robot.totest.dto.PersonDto;
 
 /**
- * The Interface PersonService.
+ * The Interface PeopleService.
  */
-public interface PersonService {
+public interface PeopleService {
 	
 	/**
 	 * Find all.

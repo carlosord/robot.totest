@@ -8,18 +8,18 @@ import org.springframework.stereotype.Service;
 
 import com.example.robot.totest.dto.PersonDto;
 import com.example.robot.totest.model.Person;
-import com.example.robot.totest.repositories.PersonRepository;
-import com.example.robot.totest.services.PersonService;
+import com.example.robot.totest.repositories.PeopleRepository;
+import com.example.robot.totest.services.PeopleService;
 
 /**
- * The Class PersonServiceImpl.
+ * The Class PeopleServiceImpl.
  */
 @Service
-public class PersonServiceImpl implements PersonService{
+public class PeopleServiceImpl implements PeopleService{
 
 	/** The person repository. */
 	@Autowired
-	private PersonRepository personRepository;
+	private PeopleRepository personRepository;
 	
 	/* (non-Javadoc)
 	 * @see com.example.robot.totest.services.PersonService#findAll()

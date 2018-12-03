@@ -8,10 +8,10 @@ import org.springframework.stereotype.Repository;
 import com.example.robot.totest.model.Person;
 
 /**
- * The Interface PersonRepository.
+ * The Interface PeopleRepository.
  */
 @Repository
-public interface PersonRepository extends JpaRepository<Person, Long> {
+public interface PeopleRepository extends JpaRepository<Person, Long> {
 	
 	/**
 	 * Find by dni containing.
