@@ -3,6 +3,7 @@ package com.example.robot.totest.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -131,6 +132,16 @@ public class LoginController {
 	@PostMapping(value = "/logout")
 	public String logoutUser(@SessionAttribute("user") User user, ModelMap model) {
 		user = null;
+		return "login";
+	}
+	
+	/**
+	 * Handler.
+	 *
+	 * @return the string
+	 */
+	@ExceptionHandler({org.springframework.web.bind.ServletRequestBindingException.class})
+	public String handler() {
 		return "login";
 	}
 

@@ -94,7 +94,6 @@ public class PeopleController {
 	 * Show new view.
 	 *
 	 * @param model the model
-	 * @param dni the dni
 	 * @return the string
 	 */
 	@GetMapping(value = "/new")
@@ -129,6 +128,11 @@ public class PeopleController {
 		return "redirect:/list";
 	}
 	
+	/**
+	 * Handler.
+	 *
+	 * @return the string
+	 */
 	@ExceptionHandler({org.springframework.web.bind.ServletRequestBindingException.class})
 	public String handler() {
 		return "login";
