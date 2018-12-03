@@ -27,11 +27,13 @@ Test Delay Page
 
 Test Delay 2 Page
     [Setup]    Open Browser At Index
-    Go To Delay Page
+    Go To Delay 2 Page
+    Wait Until Page Contains Element    //button[@data-target="#modal"]    20s
     Click On Modal Button
     Insert Date In Modal Window    04122018
     Click On Button To Show Date
     Wait Until Page Contains    2018-04-12
+    [Teardown]    Close Browser
 
 *** Keywords ***
 Open Browser At Index
@@ -47,6 +49,9 @@ Go To Video Page
 
 Go To Delay Page
     Click Link    /delay
+
+Go To Delay 2 Page
+    Click Link    //a[@onclick="sleepFunction()"]
 
 Click On Modal Button
     Click Button    //button[@data-target="#modal"]
