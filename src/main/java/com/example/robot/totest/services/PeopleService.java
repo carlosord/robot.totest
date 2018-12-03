@@ -3,11 +3,12 @@ package com.example.robot.totest.services;
 import java.util.List;
 
 import com.example.robot.totest.dto.PersonDto;
+import com.example.robot.totest.model.User;
 
 /**
- * The Interface PersonService.
+ * The Interface PeopleService.
  */
-public interface PersonService {
+public interface PeopleService {
 	
 	/**
 	 * Find all.
@@ -17,12 +18,12 @@ public interface PersonService {
 	public List<PersonDto> findAll();
 	
 	/**
-	 * Find by username.
+	 * Find by user.
 	 *
-	 * @param username the username
+	 * @param user the user
 	 * @return the list
 	 */
-	public List<PersonDto> findByUsername(String username);
+	public List<PersonDto> findByUser(User user);
 
 	/**
 	 * Find by dni.

@@ -13,18 +13,18 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.example.robot.totest.dto.PersonDto;
 import com.example.robot.totest.model.User;
 import com.example.robot.totest.model.types.Role;
-import com.example.robot.totest.services.PersonService;
+import com.example.robot.totest.services.PeopleService;
 
 /**
- * The Class PersonController.
+ * The Class PeopleController.
  */
 @Controller
 @SessionAttributes("user")
-public class PersonController {
+public class PeopleController {
 
 	/** The person service. */
 	@Autowired
-	private PersonService personService;
+	private PeopleService personService;
 
 	/**
 	 * List people.
@@ -39,7 +39,7 @@ public class PersonController {
 		if (user.getRole() == null) return "login";
 
 		model.put("people", user.getRole().equals(Role.ADMIN) ? personService.findAll()
-				: personService.findByUsername(user.getUsername()));
+				: personService.findByUser(user));
 
 		return "list";
 	}
@@ -94,7 +94,6 @@ public class PersonController {
 	 * Show new view.
 	 *
 	 * @param model the model
-	 * @param dni the dni
 	 * @return the string
 	 */
 	@GetMapping(value = "/new")
@@ -129,6 +128,11 @@ public class PersonController {
 		return "redirect:/list";
 	}
 	
+	/**
+	 * Handler.
+	 *
+	 * @return the string
+	 */
 	@ExceptionHandler({org.springframework.web.bind.ServletRequestBindingException.class})
 	public String handler() {
 		return "login";

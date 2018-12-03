@@ -9,7 +9,7 @@
 	<jsp:attribute name="body_area">
 	
 		<!-- Alert -->
-		<div class="alert alert-success alert-dismissible fade show" role="alert">
+		<div class="alert alert-success alert-dismissible fade show alert-no-show" role="alert">
 		  <h4 class="alert-heading">Date inserted!</h4>
 		  <p id="showed-input-date"></p>
 		  <button type="button" class="close" data-dismiss="alert"

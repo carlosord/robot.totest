@@ -2,6 +2,7 @@ package com.example.robot.totest.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotEmpty;
@@ -12,7 +13,7 @@ import com.example.robot.totest.model.types.Gender;
  * The Class Person.
  */
 @Entity
-@Table(name = "PERSONS", uniqueConstraints = @UniqueConstraint(columnNames = { "dni" }))
+@Table(name = "PEOPLE", uniqueConstraints = @UniqueConstraint(columnNames = { "dni" }))
 public class Person extends BaseEntity {
 
 	/** The dni. */
@@ -31,14 +32,18 @@ public class Person extends BaseEntity {
 	/** The age. */
 	@Column(name = "age", nullable = true)
 	private Integer age;
-	
+
 	/** The gender. */
 	@Column(name = "gender", nullable = true)
 	private Gender gender;
-	
+
 	/** The hasCar. */
 	@Column(name = "hascar", nullable = true)
 	private Boolean hascar;
+
+	/** The user. */
+	@OneToOne
+	private User user;
 
 	/**
 	 * Instantiates a new person.
@@ -49,7 +54,8 @@ public class Person extends BaseEntity {
 	/**
 	 * Instantiates a new person.
 	 *
-	 * @param dni the dni
+	 * @param dni
+	 *            the dni
 	 */
 	public Person(String dni) {
 		this.dni = dni;
@@ -67,7 +73,8 @@ public class Person extends BaseEntity {
 	/**
 	 * Sets the dni.
 	 *
-	 * @param dni the new dni
+	 * @param dni
+	 *            the new dni
 	 */
 	public void setDni(String dni) {
 		this.dni = dni;
@@ -85,7 +92,8 @@ public class Person extends BaseEntity {
 	/**
 	 * Sets the name.
 	 *
-	 * @param name the new name
+	 * @param name
+	 *            the new name
 	 */
 	public void setName(String name) {
 		this.name = name;
@@ -103,7 +111,8 @@ public class Person extends BaseEntity {
 	/**
 	 * Sets the lastname.
 	 *
-	 * @param lastname the new lastname
+	 * @param lastname
+	 *            the new lastname
 	 */
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
@@ -121,7 +130,8 @@ public class Person extends BaseEntity {
 	/**
 	 * Sets the age.
 	 *
-	 * @param age the new age
+	 * @param age
+	 *            the new age
 	 */
 	public void setAge(Integer age) {
 		this.age = age;
@@ -139,7 +149,8 @@ public class Person extends BaseEntity {
 	/**
 	 * Sets the gender.
 	 *
-	 * @param gender the new gender
+	 * @param gender
+	 *            the new gender
 	 */
 	public void setGender(Gender gender) {
 		this.gender = gender;
@@ -157,13 +168,16 @@ public class Person extends BaseEntity {
 	/**
 	 * Sets the hascar.
 	 *
-	 * @param hascar the new hascar
+	 * @param hascar
+	 *            the new hascar
 	 */
 	public void setHascar(Boolean hascar) {
 		this.hascar = hascar;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
@@ -174,7 +188,9 @@ public class Person extends BaseEntity {
 		return result;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -194,13 +210,36 @@ public class Person extends BaseEntity {
 		return true;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
 		return "Person [dni=" + dni + ", name=" + name + ", lastname=" + lastname + ", age=" + age + ", gender="
 				+ gender + ", hascar=" + hascar + "]";
+	}
+
+	// Maintenance relations
+
+	/**
+	 * Gets the user.
+	 *
+	 * @return the user
+	 */
+	public User getUser() {
+		return this.user;
+	}
+
+	/**
+	 * Sets the user.
+	 *
+	 * @param user
+	 *            the new user
+	 */
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 }

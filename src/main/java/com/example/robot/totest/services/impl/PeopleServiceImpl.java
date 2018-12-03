@@ -8,18 +8,24 @@ import org.springframework.stereotype.Service;
 
 import com.example.robot.totest.dto.PersonDto;
 import com.example.robot.totest.model.Person;
-import com.example.robot.totest.repositories.PersonRepository;
-import com.example.robot.totest.services.PersonService;
+import com.example.robot.totest.model.User;
+import com.example.robot.totest.repositories.PeopleRepository;
+import com.example.robot.totest.repositories.UserRepository;
+import com.example.robot.totest.services.PeopleService;
 
 /**
- * The Class PersonServiceImpl.
+ * The Class PeopleServiceImpl.
  */
 @Service
-public class PersonServiceImpl implements PersonService{
+public class PeopleServiceImpl implements PeopleService{
 
 	/** The person repository. */
 	@Autowired
-	private PersonRepository personRepository;
+	private PeopleRepository personRepository;
+	
+	/** The user repository. */
+	@Autowired
+	private UserRepository userRepository;
 	
 	/* (non-Javadoc)
 	 * @see com.example.robot.totest.services.PersonService#findAll()
@@ -30,13 +36,13 @@ public class PersonServiceImpl implements PersonService{
 	}
 
 	/* (non-Javadoc)
-	 * @see com.example.robot.totest.services.PersonService#findByUsername(java.lang.String)
+	 * @see com.example.robot.totest.services.PersonService#findByUser(com.example.robot.totest.model.User)
 	 */
 	@Override
-	public List<PersonDto> findByUsername(String username) {
-		String[] name = username.split("-");
+	public List<PersonDto> findByUser(User user) {
+		User dbUser = userRepository.findByUsernameAndPassword(user.getUsername(), user.getPassword());
 		
-		return personRepository.findByDniContaining(name[1].toUpperCase()).stream().map(PersonDto::new).collect(Collectors.toList());
+		return personRepository.findByUser(dbUser).stream().map(PersonDto::new).collect(Collectors.toList());
 	}
 
 	/* (non-Javadoc)

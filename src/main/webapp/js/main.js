@@ -1,5 +1,5 @@
 $( document ).ready(function() {
-	$('.alert').hide();
+	$('.alert-no-show').hide();
 });
 
 function showConfirm(url) {

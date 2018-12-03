@@ -3,6 +3,7 @@ package com.example.robot.totest.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -69,11 +70,13 @@ public class LoginController {
 
 		if (findedUser == null) {
 			model.put("errorMessage", "Invalid Credentials");
+			model.put("username", user.getUsername());
+			
 			return "login";
 		}
-
-		user.setRole(findedUser.getRole());
 		
+		user.setRole(findedUser.getRole());
+				
 		return "redirect:/list";
 	}
 
@@ -104,10 +107,21 @@ public class LoginController {
 			model.put("errorMessage", "User already registered");
 			return "register";
 		}
+		
+		// Cause random generation of people can autogenerate the same dni (< 0.0001%)
+		try {
 
-		user.setRole(userService.save(user.getUsername(), user.getPassword()).getRole());
+			user.setRole(userService.save(user.getUsername(), user.getPassword()).getRole());
+			
+		} catch (Exception e) {
+			
+			model.put("errorMessage", "Could not create your user rigth now. Try again");
+			
+			return "register";
+			
+		}
 
-		return "welcome";
+		return "redirect:/list";
 	}
 	
 	/**
@@ -120,6 +134,16 @@ public class LoginController {
 	@PostMapping(value = "/logout")
 	public String logoutUser(@SessionAttribute("user") User user, ModelMap model) {
 		user = null;
+		return "login";
+	}
+	
+	/**
+	 * Handler.
+	 *
+	 * @return the string
+	 */
+	@ExceptionHandler({org.springframework.web.bind.ServletRequestBindingException.class})
+	public String handler() {
 		return "login";
 	}
 

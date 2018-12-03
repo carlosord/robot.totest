@@ -1,7 +1,11 @@
 package com.example.robot.totest.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotEmpty;
@@ -13,35 +17,43 @@ import com.example.robot.totest.model.types.Role;
  * The Class User.
  */
 @Entity
-@Table(name = "USERS", uniqueConstraints = @UniqueConstraint(columnNames = {"username"}))
+@Table(name = "USERS", uniqueConstraints = @UniqueConstraint(columnNames = { "username" }))
 public class User extends BaseEntity {
-	
+
 	/** The username. */
 	@NotEmpty
-	@Column(name="username", nullable=false)
+	@Column(name = "username", nullable = false)
 	private String username;
-	
+
 	/** The password. */
 	@NotEmpty
-	@Column(name="password", nullable=false)
+	@Column(name = "password", nullable = false)
 	private String password;
-	
+
 	/** The role. */
 	@NotNull
-	@Column(name="role", nullable=false)
+	@Column(name = "role", nullable = false)
 	private Role role;
-	
+
+	/** The people. */
+	@OneToMany(mappedBy = "user")
+	private Set<Person> people = new HashSet<>();
+
 	/**
 	 * Instantiates a new user.
 	 */
-	public User() {}
+	public User() {
+	}
 
 	/**
 	 * Instantiates a new user.
 	 *
-	 * @param username the username
-	 * @param password the password
-	 * @param role the role
+	 * @param username
+	 *            the username
+	 * @param password
+	 *            the password
+	 * @param role
+	 *            the role
 	 */
 	public User(String username, String password, Role role) {
 		super();
@@ -49,7 +61,7 @@ public class User extends BaseEntity {
 		this.password = password;
 		this.role = role;
 	}
-	
+
 	/**
 	 * Gets the username.
 	 *
@@ -62,7 +74,8 @@ public class User extends BaseEntity {
 	/**
 	 * Sets the username.
 	 *
-	 * @param username the new username
+	 * @param username
+	 *            the new username
 	 */
 	public void setUsername(String username) {
 		this.username = username;
@@ -80,7 +93,8 @@ public class User extends BaseEntity {
 	/**
 	 * Sets the password.
 	 *
-	 * @param password the new password
+	 * @param password
+	 *            the new password
 	 */
 	public void setPassword(String password) {
 		this.password = password;
@@ -98,13 +112,16 @@ public class User extends BaseEntity {
 	/**
 	 * Sets the role.
 	 *
-	 * @param role the new role
+	 * @param role
+	 *            the new role
 	 */
 	public void setRole(Role role) {
 		this.role = role;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
@@ -115,7 +132,9 @@ public class User extends BaseEntity {
 		return result;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -135,12 +154,55 @@ public class User extends BaseEntity {
 		return true;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
 		return "User [username=" + username + ", role=" + role + "]";
 	}
-	
+
+	// Maintenance relations
+
+	/**
+	 * Gets the people.
+	 *
+	 * @return the people
+	 */
+	public Set<Person> getPeople() {
+		return new HashSet<>(this.people);
+	}
+
+	/**
+	 * Sets the people.
+	 *
+	 * @param people
+	 *            the new people
+	 */
+	public void setPeople(Set<Person> people) {
+		this.people = people;
+	}
+
+	/**
+	 * Adds the person.
+	 *
+	 * @param person
+	 *            the person
+	 */
+	public void addPerson(Person person) {
+		this.people.add(person);
+	}
+
+	/**
+	 * Removes the person.
+	 *
+	 * @param person
+	 *            the person
+	 */
+	public void removePerson(Person person) {
+		this.people.remove(person);
+	}
+
 }
