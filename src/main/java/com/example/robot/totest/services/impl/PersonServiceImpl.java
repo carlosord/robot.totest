@@ -36,7 +36,7 @@ public class PersonServiceImpl implements PersonService{
 	public List<PersonDto> findByUsername(String username) {
 		String[] name = username.split("-");
 		
-		return personRepository.findByDniContaining(name[1]).stream().map(PersonDto::new).collect(Collectors.toList());
+		return personRepository.findByDniContaining(name[1].toUpperCase()).stream().map(PersonDto::new).collect(Collectors.toList());
 	}
 
 	/* (non-Javadoc)
