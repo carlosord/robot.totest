@@ -3,9 +3,11 @@ Documentation     Suite to test "People Management List" from the application "r
 Library           SeleniumLibrary    # Library to user Selenium Keywords
 
 *** Variables ***
-${WEB}            localhost:8090    # Web to test with robot https://robotframework-test.herokuapp.com
+${WEB}            https://robotframework-test.herokuapp.com    # Web to test with robot https://robotframework-test.herokuapp.com
 ${SELENIUM_DELAY}    0.2    # Selenium Speed
 ${BROWSER}        Chrome    # Browser to do the test
+${USER}           user-Z
+${PASS}           user-Z
 
 *** Test Cases ***
 Login at app
