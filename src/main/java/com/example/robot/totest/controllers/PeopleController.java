@@ -39,7 +39,7 @@ public class PeopleController {
 		if (user.getRole() == null) return "login";
 
 		model.put("people", user.getRole().equals(Role.ADMIN) ? personService.findAll()
-				: personService.findByUsername(user.getUsername()));
+				: personService.findByUser(user));
 
 		return "list";
 	}

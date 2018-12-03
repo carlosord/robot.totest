@@ -71,9 +71,9 @@ public class LoginController {
 			model.put("errorMessage", "Invalid Credentials");
 			return "login";
 		}
-
-		user.setRole(findedUser.getRole());
 		
+		user.setRole(findedUser.getRole());
+				
 		return "redirect:/list";
 	}
 
@@ -104,10 +104,21 @@ public class LoginController {
 			model.put("errorMessage", "User already registered");
 			return "register";
 		}
+		
+		// Cause random generation of people can autogenerate the same dni (< 0.0001%)
+		try {
 
-		user.setRole(userService.save(user.getUsername(), user.getPassword()).getRole());
+			user.setRole(userService.save(user.getUsername(), user.getPassword()).getRole());
+			
+		} catch (Exception e) {
+			
+			model.put("errorMessage", "Could not create your user rigth now. Try again");
+			
+			return "register";
+			
+		}
 
-		return "welcome";
+		return "redirect:/list";
 	}
 	
 	/**
