@@ -8,7 +8,7 @@
 
 	<jsp:attribute name="body_area">
 	
-		<table class="table table-striped">
+		<table class="table table-striped" id="people-list">
 			<thead class="thead-dark">
 				<tr>
 					<th scope="col">Dni</th>
