@@ -28,14 +28,6 @@ Create New Person
     Check If Table Contains The New Person
     [Teardown]    Close Browser
 
-Delete Existing Person
-    [Setup]    Open Browser At Index
-    Go To Page People Management List
-    Login With User    user-A    user-A
-    Submit Form    login-form
-    Delete User 10
-    Click OK In Confirm Window
-
 Edit Existing Person
     [Setup]    Open Browser At Index
     Go To Page People Management List
@@ -45,6 +37,15 @@ Edit Existing Person
     Fill Form With New Data And Submit
     Check If Table Contains The New Person
     [Teardown]    Close Browser
+
+Delete Existing Person
+    [Setup]    Open Browser At Index
+    Go To Page People Management List
+    Login With User    user-A    user-A
+    Submit Form    login-form
+    Delete User 10
+    Wait Until Confirm Dialog Appear
+    Click OK In Confirm Window
 
 *** Keywords ***
 Open Browser At Index
@@ -82,7 +83,7 @@ Delete User 10
     Click Link    //*[@id="people-list"]/tbody/tr[10]/td[7]/a
 
 Click OK In Confirm Window
-    Click Button    body > div.jconfirm.jconfirm-supervan.jconfirm-open > div.jconfirm-scrollpane > div > div > div > div > div > div > div > div.jconfirm-buttons > button:nth-child(1)
+    Click Button    //div[@class="jconfirm-buttons"]/button[1]
 
 Check If Table Contains The Updated Person
     Wait Until Page Contains    user11
@@ -96,3 +97,6 @@ Fill Form With New Data And Submit
     Select From List By Index    gender    0
     Unselect Checkbox    hascar
     Submit Form    person-form
+
+Wait Until Confirm Dialog Appear
+    Wait Until Page Contains Element    //div[@class="jconfirm-buttons"]
