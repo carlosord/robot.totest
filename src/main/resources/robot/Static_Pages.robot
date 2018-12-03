@@ -3,7 +3,7 @@ Documentation     Suite to test "Static Pages" from the application "robotframew
 Library           SeleniumLibrary    # Library to user Selenium Keywords
 
 *** Variables ***
-${WEB}            localhost:8090    # Web to test with robot https://robotframework-test.herokuapp.com
+${WEB}            https://robotframework-test.herokuapp.com    # Web to test with robot https://robotframework-test.herokuapp.com
 ${SELENIUM_DELAY}    0.2    # Selenium Speed
 ${BROWSER}        Chrome    # Browser to do the test
 
