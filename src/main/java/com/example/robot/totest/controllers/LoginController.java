@@ -70,6 +70,8 @@ public class LoginController {
 
 		if (findedUser == null) {
 			model.put("errorMessage", "Invalid Credentials");
+			model.put("username", user.getUsername());
+			
 			return "login";
 		}
 		

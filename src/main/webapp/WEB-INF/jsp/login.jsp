@@ -12,7 +12,8 @@
 			<div class="form-group">
 				<label for="username">Username</label> <input type="text"
 					class="form-control" name="username" id="username"
-					aria-describedby="emailHelp" placeholder="Enter username" />
+					aria-describedby="emailHelp" placeholder="Enter username" 
+					value="${username}"/>
 			</div>
 			<div class="form-group">
 				<label for="password">Password</label> <input type="password"
