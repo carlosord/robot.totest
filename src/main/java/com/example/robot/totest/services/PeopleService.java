@@ -39,7 +39,7 @@ public interface PeopleService {
 	 * @param personDto the person dto
 	 * @return the person
 	 */
-	public PersonDto save(PersonDto personDto);
+	public PersonDto save(PersonDto personDto, User user);
 
 	/**
 	 * Removes the by dni.

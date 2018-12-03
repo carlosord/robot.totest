@@ -1,0 +1,72 @@
+li.submenu-child {
+    
+    position:relative;
+}
+li.submenu-child>ul.submenu>.submenu-child {
+    position: relative;
+    display: none;
+}
+.dropdown-menu.show>.submenu {
+    padding-right: 0px;
+    list-style: none;
+    padding-left: 0px;
+}
+ul.navbar-nav.mr-auto > .nav-item {
+    min-width: 130px;
+    text-align: center;
+}
+li.submenu-child:hover>ul.submenu>.submenu-child {
+    display: block;
+}
+.submenu-child>ul.submenu {
+    position: absolute;
+    left: 100%;
+    background-color: #fff;
+    padding-left: 0px;
+    padding-right: 0px;
+    top: -1px;
+    padding-bottom: 10px;
+    border: 1px solid #cccccc;
+    list-style:none;
+}
+li.submenu-child>ul.submenu>.submenu-child>ul.submenu>.submenu-child {
+    list-style:none;
+    padding-left:0px;
+    padding-right:0px;
+}
+li.submenu-child>ul.submenu>.submenu-child:hover>ul.submenu>.submenu-child {
+    display: block !important;
+}
+li.submenu-child {
+    position: relative;
+    min-width: 250px;
+}
+ul.submenu ul.submenu::after {
+    content: ".";
+    position: absolute;
+    left: -25px;
+    top: 10px;
+    width: 10px;
+    height: 10px;
+    border-right: 1px solid #777777;
+    border-bottom: 1px solid #777777;
+    transform: rotate(-45deg);
+    text-indent:100px;
+    overflow:hidden;
+}
+table#people-list {
+    float: left;
+    width: 100%;
+    overflow: hidden;
+}
+.container iframe {
+    margin: 0 auto;
+    text-align: center;
+    float: none;
+    display: inherit;
+}
+.container {
+    text-align: center;
+    padding-top: 100px;
+    padding-bottom:100px;
+}

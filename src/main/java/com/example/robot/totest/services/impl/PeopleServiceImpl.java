@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.robot.totest.dto.PersonDto;
+import com.example.robot.totest.model.Associations;
 import com.example.robot.totest.model.Person;
 import com.example.robot.totest.model.User;
 import com.example.robot.totest.repositories.PeopleRepository;
@@ -58,8 +59,13 @@ public class PeopleServiceImpl implements PeopleService{
 	 * @see com.example.robot.totest.services.PersonService#save(com.example.robot.totest.dto.PersonDto)
 	 */
 	@Override
-	public PersonDto save(PersonDto personDto) {
-		return new PersonDto(personRepository.save(personDto.toModel()));
+	public PersonDto save(PersonDto personDto, User user) {
+		Person p = personDto.toModel();
+		User dbUser = userRepository.findByUsernameAndPassword(user.getUsername(), user.getPassword());
+		
+		Associations.HasPeople.link(dbUser, p);
+		
+		return new PersonDto(personRepository.save(p));
 	}
 
 	/* (non-Javadoc)
