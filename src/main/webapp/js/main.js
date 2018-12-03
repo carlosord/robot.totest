@@ -21,3 +21,7 @@ function showDate() {
 	$("#showed-input-date").text($("#input-date").val());
 	$('.alert').show();
 }
+
+function sleepFunction() {
+	setTimeout(function(){ window.location.href = "/delay2"; }, 10000);
+}

@@ -19,6 +19,7 @@
 					People</a></li>
 			<li class="nav-item"><a class="nav-link" href="/video">Video in iframe</a></li>
 			<li class="nav-item"><a class="nav-link" href="/delay">Delay page</a></li>
+			<li class="nav-item"><a class="nav-link" href="#" onclick="sleepFunction()">Delay 2 page</a></li>
 			<jsp:include page="submenu.jsp" />
 			<li class="nav-item"><a class="nav-link" href="/info">More Info</a></li>
 		</ul>
