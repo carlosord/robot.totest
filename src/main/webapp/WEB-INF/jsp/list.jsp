@@ -39,7 +39,7 @@
 				</c:forEach>
 			</tbody>
 		</table>
-		<a href="/new">Create a person</a>
+		<a href="/new" class="btn btn-success">Create a person</a>
 	
 	</jsp:attribute>
 
