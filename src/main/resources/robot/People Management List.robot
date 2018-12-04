@@ -27,6 +27,7 @@ Create New Person
     Submit Form    login-form
     Click On Create A Person
     Fill Form With Sample Data And Submit
+    Capture Page Screenshot    capture-new-{index}.png
     Check If Table Contains The New Person
     [Teardown]    Close Browser
 

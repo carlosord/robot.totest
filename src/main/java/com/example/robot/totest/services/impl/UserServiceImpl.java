@@ -4,6 +4,7 @@ import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.robot.totest.model.Associations;
 import com.example.robot.totest.model.Person;
@@ -18,6 +19,7 @@ import com.example.robot.totest.services.UserService;
  * The Class UserServiceImpl.
  */
 @Service
+@Transactional
 class UserServiceImpl implements UserService {
 	
 	/** The Constant MAX_PEOPLE. */

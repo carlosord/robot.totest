@@ -4,7 +4,7 @@ Library           SeleniumLibrary    # Library to user Selenium Keywords
 
 *** Variables ***
 ${WEB}            https://robotframework-test.herokuapp.com    # Web to test with robot https://robotframework-test.herokuapp.com
-${SELENIUM_DELAY}    0.2    # Selenium Speed
+${SELENIUM_DELAY}    0.5    # Selenium Speed
 ${BROWSER}        Chrome    # Browser to do the test
 
 *** Test Cases ***
@@ -41,6 +41,11 @@ Test Menu Select Option
     Mouse Over    //*[@id="navbarSupportedContent"]/ul/li[5]/div/ul/li[3]/a
     Mouse Over    //*[@id="navbarSupportedContent"]/ul/li[5]/div/ul/li[3]/ul/li[2]/a
     Click Menu Element Carousel
+    Go To Next Image
+    Go To Next Image
+    Go To Next Image
+    Wait Until Page Contains Element    //div[@class="carousel-item active"]/img[@alt="First slide"]
+    [Teardown]    Close Browser
 
 *** Keywords ***
 Open Browser At Index
@@ -75,3 +80,6 @@ Click Menu Element
 
 Click Menu Element Carousel
     Click Link    //*[@id="navbarSupportedContent"]/ul/li[5]/div/ul/li[3]/ul/li[2]/ul/li[2]/a
+
+Go To Next Image
+    Click Link    //*[@id="carouselExampleControls"]/a[2]
