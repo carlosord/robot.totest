@@ -70,3 +70,39 @@ table#people-list {
     padding-top: 100px;
     padding-bottom:100px;
 }
+
+.form-group label {
+    text-align: left;
+    float: left;
+    width: 100%;
+    padding-left: 8px;
+}
+
+.form-check {
+    float: left;
+    width: 100%;
+}
+
+.form-group.form-check input {
+    float: left;
+    text-align: left;
+    position: relative;
+    padding-left: 0px;
+    margin-left: 0px;
+}
+
+.form-group.form-check input+label {
+    float: left;
+    width: auto;
+}
+
+
+.container {
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+iframe.info-iframe {
+    margin-top: -50px;
+}
