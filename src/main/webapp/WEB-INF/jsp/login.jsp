@@ -27,6 +27,7 @@
 			</c:if>
 			<button type="submit" class="btn btn-primary">Login</button>
 		</form>
+		
 		<a href="/register">Create an account</a>
 	
 	</jsp:attribute>
