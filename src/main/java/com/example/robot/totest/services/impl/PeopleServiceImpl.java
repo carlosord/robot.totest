@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.robot.totest.dto.PersonDto;
 import com.example.robot.totest.model.Associations;
@@ -18,6 +19,7 @@ import com.example.robot.totest.services.PeopleService;
  * The Class PeopleServiceImpl.
  */
 @Service
+@Transactional
 public class PeopleServiceImpl implements PeopleService{
 
 	/** The person repository. */
